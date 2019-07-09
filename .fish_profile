@@ -1,0 +1,30 @@
+
+export PATH=/Users/chuber/Documents/apache-maven-3.5.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/usr/local/opt/gettext/bin
+alias ll="ls -lha"
+
+alias mci="mvn clean install"
+alias mcp="mvn clean package"
+alias mci_noTest="mvn clean install -D skipTests=true"
+alias mcp_noTest="mvn clean package -D skipTests=true"
+
+function __getTotalSizeOfFiles
+  if (( $# == 0 ));
+    find . -ls | awk '{total += $7} END {print total / 1024 " KB"}'
+  else
+    find . -name "$1" -ls | awk '{total += $7} END {print total / 1024 " KB"}'
+  end 
+end
+alias filesSize="__getTotalSizeOfFiles"
+
+export GOPATH=$HOME/go
+export GOBIN=$HOME/go/bin
+
+PATH="${PATH}:/usr/local/bin/idea"
+export PATH
+
+# Setting PATH for Python 3.6
+# The original version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
+export PATH
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]]; and source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*

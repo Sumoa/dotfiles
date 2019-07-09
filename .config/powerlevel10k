@@ -1,0 +1,10 @@
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user dir vcs)
+
+POWERLEVEL9K_SHORTEN_STRATEGY="Default"
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
+POWERLEVEL9K_VCS_GIT_HOOKS=(vcs-detect-changes git-untracked git-aheadbehind git-remotebranch git-tagname)
+
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(battery time command_execution_time dir_writable)
+
+POWERLEVEL9K_BATTERY_HIDE_ABOVE_THRESHOLD=95
+POWERLEVEL9K_TIME_FORMAT="%D{%d.%m %H:%M:%S}"
