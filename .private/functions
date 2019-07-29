@@ -1,0 +1,11 @@
+function gitStat {
+    git log --format='%aN' | sort -u | while read name; do echo -en "$name\t"; git log --author="$name" --pretty=tformat: --numstat | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf "added lines: %s, removed lines: %s, total lines: %s\n", add, subs, loc }' -; done
+}
+
+function removeObsoletDockerImages {
+    docker images | awk '$1 ~ /<none>/ {print}' | awk '$2 ~ /<none>/ {print $3}' | xargs -L1 docker image rm
+}
+
+function removeExitedDockerImages {
+    docker ps -a -f status=exited -q | xargs -L1 docker rm
+}

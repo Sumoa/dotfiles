@@ -8,7 +8,6 @@ alias mci_noTest="mvn clean install -D skipTests=true"
 alias mcp_noTest="mvn clean package -D skipTests=true"
 alias config="/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME"
 
-
 function __getTotalSizeOfFiles() {
   if (( $# == 0 )); then
     find . -ls | awk '{total += $7} END {print total / 1024 " KB"}'
@@ -41,5 +40,8 @@ export PATH
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 for f in ~/.work/*; do
+	source $f;
+done
+for f in ~/.private/*; do
 	source $f;
 done
