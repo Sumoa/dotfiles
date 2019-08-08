@@ -20,7 +20,7 @@ alias filesSize="__getTotalSizeOfFiles"
 function backupCurrSetup() {
   BACKUP_DIR="/Users/chuber/Documents/setup"  
 
-  bash -c "cd $BACKUP_DIR; brew list > brew_list.txt; brew cask list > brew_cask_list.txt"
+  bash -c "cd $BACKUP_DIR; brew list > brew_list.txt; brew cask list > brew_cask_list.txt; brew tap > brew_taps.txt"
   bash -c "cd $BACKUP_DIR; rm -rf code; mkdir code"
   bash -c "cd $BACKUP_DIR; cd code; cp $HOME/Library/Application\ Support/Code/User/settings.json ."
   bash -c "cd $BACKUP_DIR; cd code; cp $HOME/Library/Application\ Support/Code/User/keybindings.json ."
