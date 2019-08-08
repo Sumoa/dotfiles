@@ -18,7 +18,7 @@ function __getTotalSizeOfFiles() {
 alias filesSize="__getTotalSizeOfFiles"
 
 function backupCurrSetup() {
-  BACKUP_DIR="/Users/chuber/Documents/setup"  
+  BACKUP_DIR="/Users/chuber/Documents/onedrive/OneDrive\ -\ jambit\ GmbH/setup"  
 
   bash -c "cd $BACKUP_DIR; brew list > brew_list.txt; brew cask list > brew_cask_list.txt; brew tap > brew_taps.txt"
   bash -c "cd $BACKUP_DIR; rm -rf code; mkdir code"

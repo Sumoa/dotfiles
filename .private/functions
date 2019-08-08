@@ -9,3 +9,11 @@ function removeObsoletDockerImages {
 function removeExitedDockerImages {
     docker ps -a -f status=exited -q | xargs -L1 docker rm
 }
+
+function gitCleanup {
+    git fetch -p
+    
+    for branch in `git branch -vv | grep ': gone]' | awk '{print $1}'`; do
+        git branch -D $branch
+    done
+}
