@@ -1,5 +1,34 @@
 {
   "Plugins": {
+    "bg-restage": {
+      "Name": "bg-restage",
+      "Location": "/Users/chuber/.cf/plugins/bg-restage",
+      "Version": {
+        "Major": 1,
+        "Minor": 1,
+        "Build": 0
+      },
+      "Commands": [
+        {
+          "Name": "bg-restage",
+          "Alias": "",
+          "HelpText": "Perform a zero-downtime restage of an application",
+          "UsageDetails": {
+            "Usage": "$ cf bg-restage application-to-restage",
+            "Options": null
+          }
+        },
+        {
+          "Name": "bg-restart",
+          "Alias": "",
+          "HelpText": "Perform a zero-downtime restart of an application",
+          "UsageDetails": {
+            "Usage": "$ cf bg-restart application-to-restage",
+            "Options": null
+          }
+        }
+      ]
+    },
     "cf-download": {
       "Name": "cf-download",
       "Location": "/Users/chuber/.cf/plugins/cf-download",
