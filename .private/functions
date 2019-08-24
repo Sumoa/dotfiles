@@ -16,3 +16,29 @@ function upgradePinnedFormula {
     brew upgrade $1
     brew pin $1
 }
+
+# Execute something in the pod
+# Example: `kubeExec mypod bash`
+function kubeExec {
+    exec_pod=`kubectl get pods --field-selector 'status.phase!=Failed' | grep ${1} | cut -d" " -f 1 | head -1`
+    echo "Executing ${2} in ${exec_pod} at `kubectl config view -o=jsonpath='{.current-context}'`" 
+    echo ""
+
+    kubectl exec $exec_pod -it $2
+    unset exec_pod
+}
+
+# Execute something in the container in the pod
+# Example: `kubeContainerExec mypod mycontainer bash`
+function kubeContainerExec {
+    exec_pod=`kubectl get pods --field-selector 'status.phase!=Failed' | grep ${1} | cut -d" " -f 1 | head -1`
+    echo "Executing ${3} in containter ${2} in ${exec_pod} at `kubectl config view -o=jsonpath='{.current-context}'`" 
+    echo ""
+
+    kubectl exec $exec_pod -c$2 -it $3
+    unset exec_pod
+}
+function mkc {
+    mkdir $1
+    cd $1
+}

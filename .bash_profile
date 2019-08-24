@@ -8,14 +8,13 @@ alias mci_noTest="mvn clean install -D skipTests=true"
 alias mcp_noTest="mvn clean package -D skipTests=true"
 alias config="/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME"
 
-function __getTotalSizeOfFiles() {
+function filesSize() {
   if (( $# == 0 )); then
     find . -ls | awk '{total += $7} END {print total / 1024 " KB"}'
   else
     find . -name "$1" -ls | awk '{total += $7} END {print total / 1024 " KB"}'
   fi
 }
-alias filesSize="__getTotalSizeOfFiles"
 
 function backupCurrSetup() {
   BACKUP_DIR="/Users/chuber/Documents/onedrive/OneDrive\ -\ jambit\ GmbH/setup"  
